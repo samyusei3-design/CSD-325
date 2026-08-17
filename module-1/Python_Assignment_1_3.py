@@ -20,8 +20,19 @@ def beer_bottles(bottles):
         #Decreases bottles by 1 each time the loop runs
         bottles -= 1
 
-#Asks user for number of bottles
-bottles_of_beer = int(input("How many bottles of beer are on the wall? "))
+#Asks user for number of bottles and provide error handling
+while True:
+
+    try:
+        bottles_of_beer = int(input("How many bottles of beer are on the wall? "))
+
+        if bottles_of_beer < 0:
+            print("Please enter a number equal to or greater than 0.")
+            continue
+        break
+
+    except ValueError:
+        print("Please enter an integer.")
 
 #Passes input to function
 beer_bottles(bottles_of_beer)
